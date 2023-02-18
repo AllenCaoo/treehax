@@ -1,11 +1,13 @@
 import mongoose from 'mongoose'; 
 
-const Schema = mongoose.Schema;
+// MongoDB schemas for requests in localhost5000/oh
 
-const OHSchema = new Schema({
+const OHSchema = mongoose.Schema({
     message: String
 }, {
     timestamps: true
 });
 
-export default OHSchema;
+var schema = mongoose.model('OHSchema', OHSchema);
+
+export default schema;

@@ -1,5 +1,6 @@
 import OHSchema from "../models/oh.js";
 
+// Behavior for get requests
 export const getPosts = async (req, res) => {
     try {
         const postMessages = await OHSchema.find();
@@ -10,6 +11,7 @@ export const getPosts = async (req, res) => {
     }
 }
 
+// Behavior for post requests
 export const createPost = async (req, res) => {
     const post = req.body;
 

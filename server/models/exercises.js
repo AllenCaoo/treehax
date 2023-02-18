@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+// MongoDB schemas for requests in localhost5000/exercises
 
-const exerciseSchema = new Schema({
+const exerciseSchema = mongoose.Schema({
     message: {
         type: String,
         required: true
@@ -11,4 +11,6 @@ const exerciseSchema = new Schema({
     timestamps: true
 });
 
-export default exerciseSchema;
+var schema = mongoose.model('exerciseSchema', exerciseSchema);
+
+export default schema;

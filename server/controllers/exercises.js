@@ -1,15 +1,18 @@
 import exerciseSchema from "../models/exercises.js";
 
+
+// Behavior for get requests
 export const getPosts = async (req, res) => {
     try {
         const postMessages = await exerciseSchema.find();
-        console.log(postMessages);
+        console.log("HELLO", postMessages);
         res.status(200).json(exerciseSchema);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 }
 
+// Behavior for post requests
 export const createPost = async (req, res) => {
     const post = req.body;
 
