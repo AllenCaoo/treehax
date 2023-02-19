@@ -1,6 +1,5 @@
 import OHSchema from "../models/oh.js";
-import GPTapi from "../chatgpt.js";
-import { response } from "express";
+import {openai, SETUP, OH_SETUP} from "../chatgpt.js";
 
 // Behavior for get requests
 export const getPosts = async (req, res) => {
@@ -28,15 +27,19 @@ export const createPost = async (req, res) => {
         // GPT response
         console.log("Waiting for response...");
         // console.log(GPTapi);
-        var GPTres = await GPTapi.createCompletion({
+        var GPTres = await openai.createCompletion({
             model: "text-davinci-003",
-            prompt: req.body["userinput"],
+            prompt: SETUP + OH_SETUP + req.body["userinput"],
             temperature: 0,
-            max_tokens: 100,
+            max_tokens: 1000,
         });
-        console.log(GPTres.data.choices[0]["text"]);
-        res.status(201).json(newPost);  // successful post creation
-
+        var chattext = GPTres.data.choices[0]["text"];
+        console.log(chattext);
+        res.status(201).json(
+            {
+                "text": chattext
+            }
+        );  // successful post creation
     } catch (error) {
         console.log(error.message);
         res.status(409).json({ message: error.message })
