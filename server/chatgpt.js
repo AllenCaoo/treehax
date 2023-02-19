@@ -30,8 +30,7 @@ const SETUP =
     // Question: \n \
     // Solution:"
 
-const OH_SETUP = "The student will now proceed to have a conversation with you. Proceed to respond like a \
-                  9th grade math teacher. Everything after this sentence will be the student talking. "
+const OH_SETUP = "Pretend you are helping a student at office hours. \n"
 
 const EXERCISE_SETUP = ""
 
