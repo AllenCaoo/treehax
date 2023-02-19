@@ -20,10 +20,14 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Middleware to parse incoming requests from form
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // The MongoDB identifier for our database
 const uri = process.env.ATLAS_URI;
 // Connect to mongoDB database
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('strictQuery', false);
 // Open connection
 const connection = mongoose.connection;
 connection.once('open', () => {
