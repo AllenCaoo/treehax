@@ -35,12 +35,7 @@ const OH_SETUP = "The student will now proceed to have a conversation with you. 
 
 const EXERCISE_SETUP = ""
 
-const EXERCISE_GENERATION_TEXT = "Generate a math problem that tests one or more of California's 9th grade math standards that has a numeric answer. Do not include the solution.: \n \
-    Standard: \n \
-    Standard Description: \n \
-    Question: \n \
-    Solution: \n \
-    Do not generate any problem that involve images."
+const EXERCISE_GENERATION_TEXT = "Generate a math problem that tests one or more of 9th grade math standards that has a numeric answer. Do not include the answer or solution. Do not generate any problem that involve images."
 
 function verifyAnswerText(answer, correctSolution) {
     return "The correct solution is " + correctSolution + "Is the student's answer of " + answer +  " correct?"

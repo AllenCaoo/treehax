@@ -17,16 +17,16 @@ export const getPosts = async (req, res) => {
         var GPTres = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: SETUP + "\n" + EXERCISE_GENERATION_TEXT,
-            temperature: 0,
+            temperature: 1,
             max_tokens: 100,
         });
         var fullText = GPTres.data.choices[0]["text"]
-        var question = fullText.slice(fullText.indexOf("Question"), fullText.indexOf("Solution"));
-        // console.log(chattext);
+        // var question = fullText.slice(fullText.indexOf("Question"), fullText.indexOf("Solution"));
+        console.log("GENERATING PROBLEM: ", fullText);
         res.status(201).json(
             {
                 "fulltext": fullText,
-                "question": question,
+                "question": fullText,
             }
         );  // successful post creation
     } catch (error) {
