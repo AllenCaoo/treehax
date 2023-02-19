@@ -1,4 +1,6 @@
 # Treehacks
+## Presentation
+https://docs.google.com/presentation/d/1Tq5tucIzpDsPuX23GvvPJ0_iLmq9e8WhefeSrMCqotU/edit?usp=sharing
 
 ## Setup:
 1. Install node
